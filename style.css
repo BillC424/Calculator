@@ -4,11 +4,13 @@ body {
     align-items: center;
 }
 
-.number {
+.number, .operation, #clear {
     padding: 20px;
+    font-size: larger;
 }
+
 .operation {
-    padding: 20px;
+    
     background-color: orange;
 }
 
@@ -22,14 +24,17 @@ body {
 }
 
 #display {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
     max-width: 100%;
     height: 25%;
     background-color: lightblue;
     border-color: black;
     border-width: 2px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    font-size: larger;
 }
 
-#clear {
-    padding: 20px;
-}
 
