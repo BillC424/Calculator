@@ -21,4 +21,19 @@ const multiply = function(...args) {
       return previous / current;
     });
   };  
+
+const operate = function(number, operator, number) {
+    if (operator === "+") {
+        return add(number,number)
+    } 
+    if (operator === "-") {
+        return subtract(number,number)
+    } 
+    if (operator === "*") {
+        return multiply(number,number)
+    } 
+    if (operator === "/") {
+        return divide(number,number)
+    } 
+}
   
