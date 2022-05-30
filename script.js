@@ -1,3 +1,13 @@
+// DOM references 
+
+let display = document.getElementById('display');
+
+// Variables for storing calc input 
+
+let firstNum = "";
+let operator = "operator button that is selected"
+let secondNum = "";
+
 // Functions for operations
 
 const add = function(...args) {
@@ -39,21 +49,20 @@ const operate = function(number, operator, number) {
     } 
 }
 
-// Variables for storing calc input 
-
-let firstNum = "input from number buttons before operator is selected";
-let operator = "operator button that is selected"
-let secondNum = "input from number buttons until = or another operator is selected"
-
-// DOM references 
-
-let display = document.getElementById('display');
-
-
 // Functions for event listeners
 
 function populateDisplay (number) {
+    let stringToNumber = Number(number);
+    firstNum = firstNum + number;
     display.textContent = number;
+    console.log(firstNum);
+   
+ };
+
+ function operatorSelected (operator) {
+    
+    console.log(operator);
+   
  };
 
 // Button event listeners
@@ -61,6 +70,8 @@ function populateDisplay (number) {
 const numberButtons = document.querySelectorAll('.number');
 numberButtons.forEach( (numberButton) => { numberButton.addEventListener ('click', e => populateDisplay(e.target.id) ); } );
 
+const operatorButtons = document.querySelectorAll('.operation');
+operatorButtons.forEach( (operatorButton) => { operatorButton.addEventListener ('click', e => operatorSelected(e.target.id)  ); } );
 
 
  
