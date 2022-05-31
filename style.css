@@ -5,6 +5,10 @@ body {
     background-image: url('abyan-athif-K0U0eSAjFGU-unsplash.jpeg');
 }
 
+button {
+    background-color: darkgray;
+}
+
 .number, .operation, #clear, #equals {
     padding: 20px;
     font-size: larger;
@@ -16,12 +20,13 @@ body {
 }
 
 #calculator-body {
-    background-color: black;
+    background-color: #7e18ba; 
     width: 400px;
     height: 500px;
     margin-top: 100px;
     border-color: black;
     border-width: 2px;
+    border-radius: 27px;
 }
 
 

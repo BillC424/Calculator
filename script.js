@@ -4,7 +4,7 @@ const display = document.getElementById('display');
 const numberButtons = document.querySelectorAll('.number');
 const operatorButtons = document.querySelectorAll('.operation');
 const solutionButton = document.getElementById('equals');
-
+const clearButton = document.getElementById('clear');
 
 // Variables for storing calc input 
 
@@ -59,6 +59,7 @@ const operate = function(numbers, operator) {
         display.textContent = displayValue;
         numbers = [displayValue];
         displayValue = "";
+        console.log(numbers);
 }
 
 // Functions for event listeners
@@ -78,6 +79,13 @@ function populateDisplay (number) {
     displayValue = "";
  };
 
+ function clear (numbers, displayValue) {
+      operator = "";
+      displayValue = "";
+      numbers = [];
+      display.textContent = displayValue;
+      console.log(numbers);
+ };
 
 
 // Button event listeners
@@ -88,4 +96,6 @@ numberButtons.forEach( (numberButton) => { numberButton.addEventListener ('click
 operatorButtons.forEach( (operatorButton) => { operatorButton.addEventListener ('click', e => operatorSelected(e.target.id)  ); } );
 
 solutionButton.addEventListener ('click', e => operate (numbers, operator) );
+
+clearButton.addEventListener ('click', e => clear(numbers,displayValue) );
  
