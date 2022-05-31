@@ -2,9 +2,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-image: url('abyan-athif-K0U0eSAjFGU-unsplash.jpeg');
 }
 
-.number, .operation, #clear {
+.number, .operation, #clear, #equals {
     padding: 20px;
     font-size: larger;
 }
@@ -22,6 +23,8 @@ body {
     border-color: black;
     border-width: 2px;
 }
+
+
 
 #display {
     display: flex;

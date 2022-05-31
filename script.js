@@ -1,51 +1,59 @@
 // DOM references 
 
-let display = document.getElementById('display');
+const display = document.getElementById('display');
+const numberButtons = document.querySelectorAll('.number');
+const operatorButtons = document.querySelectorAll('.operation');
+const solutionButton = document.getElementById('equals');
+
 
 // Variables for storing calc input 
 
-let firstNum = "";
+let numbers = [];
 let operator = "";
-let secondNum = "";
+let displayValue = "";
 
 // Functions for operations
 
-const add = function(...args) {
-	return args.reduce((previous, current) => {
+const add = function(numbers) {
+	return numbers.reduce((previous, current) => {
     return previous + current;
-  }, 0);
+  });
 };
 
-const subtract = function(...args) {
-	return args.reduce((previous, current) => {
+const subtract = function(numbers) {
+	return numbers.reduce((previous, current) => {
     return previous - current;
   });
 };
 
-const multiply = function(...args) {
-    return args.reduce((previous, current) => {
+const multiply = function(numbers) {
+    return numbers.reduce((previous, current) => {
       return previous * current;
     });
   };
 
-  const divide = function(...args) {
-    return args.reduce((previous, current) => {
+  const divide = function(numbers) {
+    return numbers.reduce((previous, current) => {
       return previous / current;
     });
   };  
 
-const operate = function(number, operator, number) {
-    if (operator === "+") {
-        return add(number,number)
+const operate = function(numbers, operator) {
+    displayValue = Number(displayValue);
+    numbers.push(displayValue);
+    displayValue = "";
+
+    if (operator === "add") {
+        display.textContent = add(numbers)
     } 
-    if (operator === "-") {
-        return subtract(number,number)
+    if (operator === "subtract") {
+        display.textContent = subtract(numbers)
     } 
-    if (operator === "*") {
-        return multiply(number,number)
+    if (operator === "multiply") {
+        display.textContent = multiply(numbers)
     } 
-    if (operator === "/") {
-        return divide(number,number)
+    if (operator === "divide") {
+        display.textContent = divide(numbers)
     } 
 }
 
@@ -53,34 +61,27 @@ const operate = function(number, operator, number) {
 
 function populateDisplay (number) {
     
-    firstNum = firstNum + number;
-    display.textContent = firstNum;
-    console.log(firstNum)
-    
+    displayValue = displayValue + number;
+    display.textContent = displayValue;
+
  };
 
  function operatorSelected (operatorClicked) {
     
     operator = operatorClicked;
-    console.log(operator);
-    numberButtons.forEach( (numberButton) => { numberButton.removeEventListener ('click', e => populateDisplay(e.target.id) ); } );
-    numberButtons.forEach( (numberButton) => { numberButton.addEventListener ('click', e => secondNumDisplay(e.target.id) ); } );
+    displayValue = Number(displayValue);
+    numbers.push(displayValue);
+    displayValue = "";
  };
 
- function secondNumDisplay (number) {
-    secondNum = secondNum + number;
-    display.textContent = secondNum;
-    console.log(secondNum)
- }
+
 
 // Button event listeners
 
-const numberButtons = document.querySelectorAll('.number');
+
 numberButtons.forEach( (numberButton) => { numberButton.addEventListener ('click', e => populateDisplay(e.target.id) ); } );
 
-
-const operatorButtons = document.querySelectorAll('.operation');
 operatorButtons.forEach( (operatorButton) => { operatorButton.addEventListener ('click', e => operatorSelected(e.target.id)  ); } );
 
-
+solutionButton.addEventListener ('click', e => operate (numbers, operator) );
  
