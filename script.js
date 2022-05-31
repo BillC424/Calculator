@@ -44,17 +44,21 @@ const operate = function(numbers, operator) {
     displayValue = "";
 
     if (operator === "add") {
-        display.textContent = add(numbers)
+        displayValue = add(numbers);
     } 
     if (operator === "subtract") {
-        display.textContent = subtract(numbers)
+        displayValue = subtract(numbers);
+        
     } 
     if (operator === "multiply") {
-        display.textContent = multiply(numbers)
+        displayValue = multiply(numbers);
     } 
     if (operator === "divide") {
-        display.textContent = divide(numbers)
+        displayValue = divide(numbers);
     } 
+        display.textContent = displayValue;
+        numbers = [displayValue];
+        displayValue = "";
 }
 
 // Functions for event listeners
