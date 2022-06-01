@@ -84,7 +84,7 @@ function populateDisplay (number) {
  function clear (numbers, displayValue) {
       operator = "";
       displayValue = "";
-      numbers = [];
+      numbers.splice(0,2);
       display.textContent = displayValue;
       console.log(numbers);
  };
