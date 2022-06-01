@@ -57,7 +57,7 @@ const operate = function(numbers, operator) {
         displayValue = divide(numbers);
     } 
         display.textContent = displayValue;
-        numbers = [displayValue];
+        numbers.splice(0,2, displayValue);
         displayValue = "";
         console.log(numbers);
 }
@@ -74,9 +74,11 @@ function populateDisplay (number) {
  function operatorSelected (operatorClicked) {
     
     operator = operatorClicked;
+    if (displayValue !== "") {
     displayValue = Number(displayValue);
     numbers.push(displayValue);
-    displayValue = "";
+    displayValue = ""; }
+    console.log(numbers);
  };
 
  function clear (numbers, displayValue) {
@@ -87,9 +89,7 @@ function populateDisplay (number) {
       console.log(numbers);
  };
 
-
 // Button event listeners
-
 
 numberButtons.forEach( (numberButton) => { numberButton.addEventListener ('click', e => populateDisplay(e.target.id) ); } );
 
