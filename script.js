@@ -73,12 +73,21 @@ function populateDisplay (number) {
 
  function operatorSelected (operatorClicked) {
     
+    if (operator !== "") {
+        operate (numbers, operator)
+    }
+
     operator = operatorClicked;
+
     if (displayValue !== "") {
     displayValue = Number(displayValue);
     numbers.push(displayValue);
     displayValue = ""; }
+    
     console.log(numbers);
+
+
+
  };
 
  function clear (numbers, displayValue) {
