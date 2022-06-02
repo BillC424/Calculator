@@ -18,6 +18,7 @@ button {
     border-radius: 50%;
     border-color: black;
     padding: 4px 8px;
+    
 }
 
 #decimal-button {
@@ -26,7 +27,6 @@ button {
 
 
 .operation {
-    
     padding: 1px 2px;
 }
 
@@ -35,7 +35,7 @@ button {
     grid-template-rows: 1.6fr .25fr 1fr .4fr;
     background-color: #7e18ba; 
     width: 350px;
-    height: 475px;
+    height: 485px;
     margin-top: 100px;
     border-color: black;
     border-width: 2px;
@@ -105,8 +105,9 @@ button {
 
 #middle-left {
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: flex-start;
+    padding-left: 23px;
 }
 
 #operator-nav-pad {
@@ -142,8 +143,6 @@ button {
 #subtract {
     grid-area: subtract;
     border-top-color: rgb(111, 111, 111);
-    
-    
 }
 
 #middle-right {
@@ -163,23 +162,44 @@ button {
 
 #bottom-half {
     display: grid;
-    
-    
 }
 
 #bottom {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     
 }
 
 #bottom-buttons {
     display: flex;
     justify-content: space-between;
-    width: 15%;
+    align-items: flex-start;
+    width: 22%;
+    
+}
+
+.bottom-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+figure {
+    margin: 0px;
+    vertical-align: top;
+    text-align: center;
 }
 
 .select-start {
-padding: 1px;
+padding: 5px 14px;
+border-radius: 10px;
+border-color: rgb(45, 45, 45);
+border-style: groove;
+align-self: center;
+}
+
+#bottom-button-descriptions {
+    color: rgb(57, 0, 91); 
 }
