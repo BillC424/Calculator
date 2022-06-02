@@ -21,11 +21,9 @@ button {
 }
 
 
-
-
 .operation {
     
-    background-color: orange;
+    padding: 1px 2px;
 }
 
 #calculator-body {
@@ -91,8 +89,43 @@ button {
 }
 
 #middle-bottom {
+    display:grid;
+    grid-template-columns: 50% 50%;
     grid-column-gap: 20px;
 }
+
+#middle-left {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#operator-nav-pad {
+    display: grid;
+    grid-template-columns: 50px 50px 50px;
+    grid-template-rows: auto;
+    grid-template-areas:
+    ". add ."
+    "multiply . divide"
+    ". subtract .";
+}
+
+#add {
+    grid-area: add;
+}
+
+#multiply {
+    grid-area: multiply;
+}
+
+#divide {
+    grid-area: divide;
+}
+
+#subtract {
+    grid-area: subtract;
+}
+
 
 #bottom-half {
     display: grid;
