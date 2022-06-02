@@ -17,7 +17,11 @@ button {
 .number {
     border-radius: 50%;
     border-color: black;
-    padding: 5px 10px;
+    padding: 4px 8px;
+}
+
+#decimal-button {
+    padding: 4px 10.5px;
 }
 
 
@@ -28,13 +32,18 @@ button {
 
 #calculator-body {
     display:grid;
+    grid-template-rows: 1.6fr .25fr 1fr .4fr;
     background-color: #7e18ba; 
-    width: 400px;
-    height: 500px;
+    width: 350px;
+    height: 475px;
     margin-top: 100px;
     border-color: black;
     border-width: 2px;
-    border-radius: 27px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-left-radius: 27px;
+    border-bottom-right-radius: 27px;
+    
 }
 
 
@@ -84,47 +93,72 @@ button {
     border-width: 2px;
     border-radius: 17px;
     border-style: solid;
-    padding: 3px;
-    margin-top: 12px;
+    padding: 1.5px 5px;
+    
 }
 
 #middle-bottom {
     display:grid;
     grid-template-columns: 50% 50%;
-    grid-column-gap: 20px;
+    
 }
 
 #middle-left {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: flex-start;
 }
 
 #operator-nav-pad {
     display: grid;
-    grid-template-columns: 50px 50px 50px;
+    grid-template-columns: 27px 27px 27px;
     grid-template-rows: auto;
     grid-template-areas:
     ". add ."
-    "multiply . divide"
+    "multiply middle divide"
     ". subtract .";
 }
 
 #add {
     grid-area: add;
+    border-bottom-width: 0px;
 }
 
 #multiply {
     grid-area: multiply;
+    border-right-width: 0px;
+}
+
+#middle-button {
+    grid-area: middle;
+    border-width: 0px;
 }
 
 #divide {
     grid-area: divide;
+    border-left-width: 0px;
 }
 
 #subtract {
     grid-area: subtract;
+    border-top-color: rgb(111, 111, 111);
+    
+    
 }
+
+#middle-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+}
+
+#one-three, #four-six, #seven-nine, #zero-decimal {
+    padding-right: 25px;
+    padding-bottom: 5px;
+}
+
 
 
 #bottom-half {
