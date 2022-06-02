@@ -41,6 +41,12 @@ const multiply = function(numbers) {
   };  
 
 const operate = function(numbers, operator) {
+    if (numbers === [] || operator === "") {
+        alert("You can't do that!")
+        displayValue = "";
+        display.textContent = displayValue;
+        return
+    }
     displayValue = Number(displayValue);
     numbers.push(displayValue);
     displayValue = "";
