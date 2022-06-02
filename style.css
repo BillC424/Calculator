@@ -9,7 +9,7 @@ button {
     background-color: rgb(111, 111, 111);
 }
 
-.number, .operation, #clear, #equals {
+.number, .operation {
     padding: 15px;
     font-size: larger;
 }
@@ -17,8 +17,11 @@ button {
 .number {
     border-radius: 50%;
     border-color: black;
-    padding: 10px 15px;
+    padding: 5px 10px;
 }
+
+
+
 
 .operation {
     
@@ -49,20 +52,67 @@ button {
     padding: 10px;
     width: 85%;
     height: 75%;
+    border-radius: 5px;
 }
 
 #display {
     display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
+    align-items: center;
+    justify-content: center;
     background-color: lightblue;
     border-color: black;
     border-width: 2px;
     width: 60%;
     height: 80%;
-    padding-bottom: 10px;
-    padding-right: 10px;
     font-size: larger;
 }
 
+#middle {
+    display: flex;
+    justify-content: center;
+}
 
+#calculator-text {
+    color: rgb(94, 1, 148); 
+    border-color: black;
+    border-width: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+
+}
+
+#calc-text-border {
+    border-color: rgb(94, 1, 148); ;
+    border-width: 2px;
+    border-radius: 17px;
+    border-style: solid;
+    padding: 3px;
+    margin-top: 12px;
+}
+
+#middle-bottom {
+    grid-column-gap: 20px;
+}
+
+#bottom-half {
+    display: grid;
+    
+    
+}
+
+#bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+#bottom-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 15%;
+}
+
+.select-start {
+padding: 1px;
+}
