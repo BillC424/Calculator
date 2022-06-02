@@ -5,12 +5,14 @@ const numberButtons = document.querySelectorAll('.number');
 const operatorButtons = document.querySelectorAll('.operation');
 const solutionButton = document.getElementById('equals');
 const clearButton = document.getElementById('clear');
+const decimalButton = document.getElementById('.');
 
 // Variables for storing calc input 
 
 let numbers = [];
 let operator = "";
 let displayValue = "";
+let decimal = "";
 
 // Functions for operations
 
@@ -56,6 +58,7 @@ const operate = function(numbers, operator) {
     if (operator === "divide") {
         displayValue = divide(numbers);
     } 
+        displayValue = roundHalfUp(displayValue, 2);
         display.textContent = displayValue;
         numbers.splice(0,2, displayValue);
         displayValue = "";
@@ -65,9 +68,15 @@ const operate = function(numbers, operator) {
 // Functions for event listeners
 
 function populateDisplay (number) {
+
+   /* if (operator === "divide" && number === "0") {
+        alert("Look this Calc Boy is running on two AA batteries and will die if you try to divide by 0. Pick a different number instead.")
+
+    }*/
     
     displayValue = displayValue + number;
     display.textContent = displayValue;
+
 
  };
 
@@ -85,26 +94,42 @@ function populateDisplay (number) {
     displayValue = ""; }
     
     console.log(numbers);
-
-
-
+    
  };
 
+ function roundHalfUp(value, decimals) {
+    return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
+  }
+
  function clear (numbers, displayValue) {
+
       operator = "";
       displayValue = "";
       numbers.splice(0,2);
       display.textContent = displayValue;
       console.log(numbers);
+      console.log(displayValue)
  };
+
+ /*function decimalCheck (d) {
+     if (d !== "")  {
+         console.log("don't do that");
+     }
+
+     decimal = d;
+ }*/
 
 // Button event listeners
 
 numberButtons.forEach( (numberButton) => { numberButton.addEventListener ('click', e => populateDisplay(e.target.id) ); } );
+
+decimalButton.addEventListener ('click', e => populateDisplay(e.target.id) );
 
 operatorButtons.forEach( (operatorButton) => { operatorButton.addEventListener ('click', e => operatorSelected(e.target.id)  ); } );
 
 solutionButton.addEventListener ('click', e => operate (numbers, operator) );
 
 clearButton.addEventListener ('click', e => clear(numbers,displayValue) );
+
+
  
