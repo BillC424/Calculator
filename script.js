@@ -53,6 +53,12 @@ const operate = function() {
         return
     }
 
+    if (operator === "divide" && displayValue === "0") {
+        alert("Look this Calc Boy is running on two AA batteries and will die if you try to divide by 0. Pick a different number instead.")
+        displayValue = "";
+        return
+    }
+
     displayValue = Number(displayValue);
     numbers.push(displayValue);
     displayValue = "";
@@ -84,10 +90,7 @@ const operate = function() {
 
 function populateDisplay (number) {
 
-   /* if (operator === "divide" && number === "0") {
-        alert("Look this Calc Boy is running on two AA batteries and will die if you try to divide by 0. Pick a different number instead.")
-
-    }*/
+    
     
     displayValue = displayValue + number;
     display.textContent = displayValue;
