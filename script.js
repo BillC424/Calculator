@@ -83,8 +83,6 @@ const operate = function() {
         numbers.splice(0,2, displayValue);
         operator = "";
         displayValue = "";
-        console.log(numbers);
-        
 }
 
 // Functions for event listeners
@@ -94,15 +92,11 @@ function populateDisplay (number) {
     if (displayValue.includes(".") === true && number === ".") {
         return
     }
-    
     displayValue = displayValue + number;
     display.textContent = displayValue;
-
-
  };
 
  function operatorSelected (operatorClicked) {
-    console.log(operator);
     if (operator !== "") {
         operate (numbers, operator)
     }
@@ -113,9 +107,6 @@ function populateDisplay (number) {
     displayValue = Number(displayValue);
     numbers.push(displayValue);
     displayValue = ""; }
-    
-    console.log(numbers);
-    
  };
 
  function roundHalfUp(value, decimals) {
@@ -128,17 +119,8 @@ function populateDisplay (number) {
       displayValue = "";
       numbers.splice(0,2);
       display.textContent = displayValue;
-      console.log(numbers);
-      console.log(displayValue)
  };
 
- /*function decimalCheck (d) {
-     if (d !== "")  {
-         console.log("don't do that");
-     }
-
-     decimal = d;
- }*/
 
 // Button event listeners
 
