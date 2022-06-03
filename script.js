@@ -40,13 +40,19 @@ const multiply = function(numbers) {
     });
   };  
 
-const operate = function(numbers, operator) {
-    if (numbers === [] || operator === "") {
-        alert("You can't do that!")
+const operate = function() {
+    if (operator === "" && numbers !== []) {
+        alert("You can't do that! Start over")
         displayValue = "";
         display.textContent = displayValue;
         return
     }
+
+    if (numbers !== [] && operator !== "" && displayValue === "") {
+        alert("You can't do that! Enter a number before selecting the = sign")
+        return
+    }
+
     displayValue = Number(displayValue);
     numbers.push(displayValue);
     displayValue = "";
@@ -64,11 +70,14 @@ const operate = function(numbers, operator) {
     if (operator === "divide") {
         displayValue = divide(numbers);
     } 
+        
         displayValue = roundHalfUp(displayValue, 2);
         display.textContent = displayValue;
         numbers.splice(0,2, displayValue);
+        operator = "";
         displayValue = "";
         console.log(numbers);
+        
 }
 
 // Functions for event listeners
@@ -87,7 +96,7 @@ function populateDisplay (number) {
  };
 
  function operatorSelected (operatorClicked) {
-    
+    console.log(operator);
     if (operator !== "") {
         operate (numbers, operator)
     }
@@ -107,7 +116,7 @@ function populateDisplay (number) {
     return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
   }
 
- function clear (numbers, displayValue) {
+ function clear () {
 
       operator = "";
       displayValue = "";
