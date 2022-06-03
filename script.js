@@ -45,6 +45,7 @@ const operate = function() {
         alert("You can't do that! Start over")
         displayValue = "";
         display.textContent = displayValue;
+        numbers.splice(0,2)
         return
     }
 
@@ -90,7 +91,9 @@ const operate = function() {
 
 function populateDisplay (number) {
 
-    
+    if (displayValue.includes(".") === true && number === ".") {
+        return
+    }
     
     displayValue = displayValue + number;
     display.textContent = displayValue;
